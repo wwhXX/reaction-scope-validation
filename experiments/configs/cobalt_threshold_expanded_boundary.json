@@ -1,0 +1,71 @@
+{
+  "description": "Expanded Cobalt boundary-sampling threshold sensitivity with weighted iterative CVT and Tanimoto space.",
+  "tasks": [
+    {
+      "name": "cobalt_threshold1_boundary_expanded",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_threshold_sensitivity",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 1,
+        "dims": ["2", "8", "16", "full", "tanimoto"],
+        "methods": ["random", "cvt", "weighted_itr_cvt", "fps", "kennard_stone", "ward", "repulsive_fps"],
+        "budget": 12,
+        "batch_size": 6,
+        "repeats": 20,
+        "failure_clusters": 4,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "bootstrap_samples": 2000,
+        "out_prefix": "cobalt_threshold1_boundary_expanded_budget12_repeat20"
+      }
+    },
+    {
+      "name": "cobalt_threshold30_boundary_expanded",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_threshold_sensitivity",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 30,
+        "dims": ["2", "8", "16", "full", "tanimoto"],
+        "methods": ["random", "cvt", "weighted_itr_cvt", "fps", "kennard_stone", "ward", "repulsive_fps"],
+        "budget": 12,
+        "batch_size": 6,
+        "repeats": 20,
+        "failure_clusters": 4,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "bootstrap_samples": 2000,
+        "out_prefix": "cobalt_threshold30_boundary_expanded_budget12_repeat20"
+      }
+    },
+    {
+      "name": "cobalt_threshold50_boundary_expanded",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_threshold_sensitivity",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 50,
+        "dims": ["2", "8", "16", "full", "tanimoto"],
+        "methods": ["random", "cvt", "weighted_itr_cvt", "fps", "kennard_stone", "ward", "repulsive_fps"],
+        "budget": 12,
+        "batch_size": 6,
+        "repeats": 20,
+        "failure_clusters": 4,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "bootstrap_samples": 2000,
+        "out_prefix": "cobalt_threshold50_boundary_expanded_budget12_repeat20"
+      }
+    }
+  ]
+}

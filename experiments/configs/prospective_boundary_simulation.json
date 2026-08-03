@@ -1,0 +1,153 @@
+{
+  "description": "Retrospective prospective batch-by-batch simulations for reaction-boundary discovery. Full labels are used only as an oracle after each simulated batch is selected.",
+  "tasks": [
+    {
+      "name": "aldol_prospective_boundary",
+      "type": "prospective_simulation",
+      "output_dir": "experiments/results/prospective_boundary_simulation",
+      "plot": true,
+      "params": {
+        "data": "Examples/Sampling_eval/Model_eval/Regression/1700_final_norepeat.csv",
+        "target": "conv",
+        "non_feature_cols": ["smiles", "conv"],
+        "success_threshold": 70,
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": [
+          "random",
+          "cvt",
+          "weighted_itr_cvt",
+          "fps",
+          "kennard_stone",
+          "ward",
+          "repulsive_fps",
+          "uncertainty",
+          "uncertainty_diversity"
+        ],
+        "budget": 80,
+        "batch_size": 10,
+        "initial_size": 10,
+        "initial_method": "cvt",
+        "repeats": 30,
+        "boundary_quantile": 0.25,
+        "failure_clusters": 8,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "uncertainty_trees": 200,
+        "candidate_multiplier": 10,
+        "diversity_weight": 0.25,
+        "out_prefix": "aldol_prospective_boundary_budget80_repeat30"
+      }
+    },
+    {
+      "name": "cobalt_prospective_boundary",
+      "type": "prospective_simulation",
+      "output_dir": "experiments/results/prospective_boundary_simulation",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 1,
+        "dims": ["2", "8", "16", "full", "tanimoto"],
+        "methods": [
+          "random",
+          "cvt",
+          "weighted_itr_cvt",
+          "fps",
+          "kennard_stone",
+          "ward",
+          "repulsive_fps",
+          "uncertainty",
+          "uncertainty_diversity"
+        ],
+        "budget": 24,
+        "batch_size": 6,
+        "initial_size": 6,
+        "initial_method": "cvt",
+        "repeats": 50,
+        "boundary_quantile": 0.25,
+        "failure_clusters": 4,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "uncertainty_trees": 200,
+        "candidate_multiplier": 10,
+        "diversity_weight": 0.25,
+        "out_prefix": "cobalt_prospective_boundary_budget24_repeat50"
+      }
+    },
+    {
+      "name": "buchwald_hartwig_prospective_boundary",
+      "type": "prospective_simulation",
+      "output_dir": "experiments/results/prospective_boundary_simulation",
+      "plot": true,
+      "params": {
+        "data": "Data/External/rxn_yields_prepared/buchwald_hartwig_onehot_benchmark.csv",
+        "target": "yield",
+        "non_feature_cols": ["reaction_id", "yield"],
+        "success_threshold": 50,
+        "dims": ["2", "16", "32", "full"],
+        "methods": [
+          "random",
+          "cvt",
+          "weighted_itr_cvt",
+          "fps",
+          "kennard_stone",
+          "ward",
+          "repulsive_fps",
+          "uncertainty",
+          "uncertainty_diversity"
+        ],
+        "budget": 120,
+        "batch_size": 20,
+        "initial_size": 20,
+        "initial_method": "cvt",
+        "repeats": 20,
+        "boundary_quantile": 0.25,
+        "failure_clusters": 8,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "uncertainty_trees": 150,
+        "candidate_multiplier": 8,
+        "diversity_weight": 0.25,
+        "out_prefix": "buchwald_hartwig_prospective_boundary_budget120_repeat20"
+      }
+    },
+    {
+      "name": "suzuki_miyaura_prospective_boundary",
+      "type": "prospective_simulation",
+      "output_dir": "experiments/results/prospective_boundary_simulation",
+      "plot": true,
+      "params": {
+        "data": "Data/External/rxn_yields_prepared/suzuki_miyaura_onehot_benchmark.csv",
+        "target": "yield",
+        "non_feature_cols": ["reaction_id", "yield"],
+        "success_threshold": 50,
+        "dims": ["2", "16", "32", "full"],
+        "methods": [
+          "random",
+          "cvt",
+          "weighted_itr_cvt",
+          "fps",
+          "kennard_stone",
+          "ward",
+          "repulsive_fps",
+          "uncertainty",
+          "uncertainty_diversity"
+        ],
+        "budget": 120,
+        "batch_size": 20,
+        "initial_size": 20,
+        "initial_method": "cvt",
+        "repeats": 20,
+        "boundary_quantile": 0.25,
+        "failure_clusters": 8,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "uncertainty_trees": 150,
+        "candidate_multiplier": 8,
+        "diversity_weight": 0.25,
+        "out_prefix": "suzuki_miyaura_prospective_boundary_budget120_repeat20"
+      }
+    }
+  ]
+}

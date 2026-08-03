@@ -1,0 +1,43 @@
+{
+  "description": "External public HTE yield benchmarks prepared from rxn4chemistry/rxn_yields workbooks using reaction-component one-hot features.",
+  "tasks": [
+    {
+      "name": "buchwald_hartwig_repeated_ci",
+      "type": "repeated_ci",
+      "output_dir": "experiments/results/external_yield_benchmarks",
+      "plot": true,
+      "params": {
+        "data": "Data/External/rxn_yields_prepared/buchwald_hartwig_onehot_benchmark.csv",
+        "target": "yield",
+        "non_feature_cols": ["reaction_id", "yield"],
+        "dims": ["2", "16", "32", "full"],
+        "repeats": 30,
+        "test_size": 0.2,
+        "success_threshold": 50,
+        "model_set": "minimal",
+        "n_estimators": 150,
+        "bootstrap_samples": 2000,
+        "out_prefix": "buchwald_hartwig_repeated30_minimal_ci"
+      }
+    },
+    {
+      "name": "suzuki_miyaura_repeated_ci",
+      "type": "repeated_ci",
+      "output_dir": "experiments/results/external_yield_benchmarks",
+      "plot": true,
+      "params": {
+        "data": "Data/External/rxn_yields_prepared/suzuki_miyaura_onehot_benchmark.csv",
+        "target": "yield",
+        "non_feature_cols": ["reaction_id", "yield"],
+        "dims": ["2", "16", "32", "full"],
+        "repeats": 30,
+        "test_size": 0.2,
+        "success_threshold": 50,
+        "model_set": "minimal",
+        "n_estimators": 150,
+        "bootstrap_samples": 2000,
+        "out_prefix": "suzuki_miyaura_repeated30_minimal_ci"
+      }
+    }
+  ]
+}

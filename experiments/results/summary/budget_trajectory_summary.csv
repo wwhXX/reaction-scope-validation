@@ -1,0 +1,5 @@
+dataset,configured_budget,final_budget,mid_budget,best_mid_boundary,best_mid_boundary_coverage,best_final_boundary,best_final_boundary_coverage,first_budget_boundary_coverage_ge_0_10,first_boundary_coverage_ge_0_10_method
+aldol,80,80.0,40.0,cvt / full,0.1009768009768009,cvt / full,0.1927960927960928,40.0,cvt / full
+buchwald_hartwig,120,120.0,60.0,cvt / 32,0.0327464788732394,weighted_itr_cvt / 32,0.0612676056338028,,not reached
+cobalt,24,24.0,12.0,random / tanimoto,0.2775,random / tanimoto,0.455,6.0,random / tanimoto
+suzuki_miyaura,120,120.0,60.0,ward / 32,0.01371656232214,uncertainty / 32,0.0252703471826977,,not reached

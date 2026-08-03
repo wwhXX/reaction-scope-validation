@@ -1,0 +1,24 @@
+{
+  "description": "Fast smoke test for the cobalt condition-1 benchmark.",
+  "tasks": [
+    {
+      "name": "cobalt_boundary_smoke",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_smoke",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 1,
+        "dims": ["2"],
+        "methods": ["random", "fps"],
+        "budget": 8,
+        "batch_size": 4,
+        "repeats": 2,
+        "failure_clusters": 4,
+        "out_prefix": "cobalt_boundary_smoke"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+name: reaction-scope-validation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - rdkit
+  - matplotlib
+  - pillow
+  - python-docx
+  - openpyxl
+  - seaborn
+  - tqdm
+  - umap-learn
+  - optuna
+  - xgboost
+  - pip
+  - pip:
+      - deprecated

@@ -1,0 +1,47 @@
+{
+  "description": "Expanded boundary-sensitive sampling benchmark with failure-repulsive weighted iterative CVT and Tanimoto space.",
+  "tasks": [
+    {
+      "name": "aldol_boundary_expanded",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/aldol_core",
+      "plot": true,
+      "params": {
+        "data": "Examples/Sampling_eval/Model_eval/Regression/1700_final_norepeat.csv",
+        "target": "conv",
+        "non_feature_cols": ["smiles", "conv"],
+        "success_threshold": 70,
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": ["random", "cvt", "weighted_itr_cvt", "fps", "kennard_stone", "ward", "repulsive_fps"],
+        "budget": 40,
+        "batch_size": 10,
+        "repeats": 10,
+        "failure_clusters": 8,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "out_prefix": "aldol_boundary_expanded_budget40_repeat10"
+      }
+    },
+    {
+      "name": "cobalt_boundary_expanded",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_core",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 1,
+        "dims": ["2", "8", "16", "full", "tanimoto"],
+        "methods": ["random", "cvt", "weighted_itr_cvt", "fps", "kennard_stone", "ward", "repulsive_fps"],
+        "budget": 12,
+        "batch_size": 6,
+        "repeats": 20,
+        "failure_clusters": 4,
+        "weighted_iters": 20,
+        "cvt_init_iters": 10,
+        "out_prefix": "cobalt_condition1_boundary_expanded_budget12_repeat20"
+      }
+    }
+  ]
+}

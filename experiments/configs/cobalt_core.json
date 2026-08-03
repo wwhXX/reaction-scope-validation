@@ -1,0 +1,61 @@
+{
+  "description": "Core cobalt condition-1 benchmark using the original reactive/non-reactive threshold.",
+  "tasks": [
+    {
+      "name": "cobalt_dimension_model",
+      "type": "dimension_model",
+      "output_dir": "experiments/results/cobalt_core",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "dims": ["2", "8", "16", "full"],
+        "folds": 5,
+        "test_size": 0.1,
+        "val_size": 0.1,
+        "success_threshold": 1,
+        "include_xgboost": true,
+        "out_prefix": "cobalt_condition1_dimension_model"
+      }
+    },
+    {
+      "name": "cobalt_repeated_ci",
+      "type": "repeated_ci",
+      "output_dir": "experiments/results/cobalt_core",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "dims": ["2", "8", "16", "full"],
+        "repeats": 100,
+        "test_size": 0.2,
+        "success_threshold": 1,
+        "model_set": "minimal",
+        "n_estimators": 150,
+        "bootstrap_samples": 2000,
+        "out_prefix": "cobalt_condition1_repeated100_minimal_ci"
+      }
+    },
+    {
+      "name": "cobalt_boundary_sampling",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/cobalt_core",
+      "plot": true,
+      "params": {
+        "data": "Examples/Co_catalytic/strength=0.0/cobalt_condition1_benchmark.csv",
+        "target": "condition1_yield",
+        "non_feature_cols": ["SMILES", "condition1_yield", "condition1_ee", "condition2_yield", "condition2_ee"],
+        "success_threshold": 1,
+        "dims": ["2", "8", "16", "full"],
+        "methods": ["random", "cvt", "fps", "kennard_stone", "ward", "lhs", "sobol", "repulsive_fps"],
+        "budget": 12,
+        "batch_size": 4,
+        "repeats": 20,
+        "failure_clusters": 6,
+        "out_prefix": "cobalt_condition1_boundary_sampling_budget12_repeat20"
+      }
+    }
+  ]
+}

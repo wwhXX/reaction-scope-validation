@@ -1,0 +1,97 @@
+{
+  "description": "Dimension-aware sampling coverage benchmarks for article-test datasets that provide candidate spaces and reference/experimental subsets.",
+  "tasks": [
+    {
+      "name": "alcohol_reference_sampling",
+      "type": "reference_sampling",
+      "output_dir": "experiments/results/article_reference_sampling",
+      "plot": true,
+      "params": {
+        "space": "Examples/Article_tests/Alcohols/底物醇去重.csv",
+        "space_features": "Examples/Article_tests/Alcohols/fp_spoc_morgan41024_Maccs_底物醇去重_alcohol.csv",
+        "reference": "Examples/Article_tests/Alcohols/experimental_data_results_of_alcohol_ol.csv",
+        "reference_features": "Examples/Article_tests/Alcohols/fp_spoc_morgan41024_Maccs_experimental_data_results_of_alcohol_ol_alcohol.csv",
+        "space_smiles_col": "smiles",
+        "reference_smiles_col": "SMILES",
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": ["random", "cvt", "scopemap_hd", "fps", "kennard_stone", "ward"],
+        "budget": 60,
+        "batch_size": 10,
+        "repeats": 20,
+        "reference_clusters": 8,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "out_prefix": "alcohol_reference_sampling_budget60_repeat20"
+      }
+    },
+    {
+      "name": "thiol_reference_sampling",
+      "type": "reference_sampling",
+      "output_dir": "experiments/results/article_reference_sampling",
+      "plot": true,
+      "params": {
+        "space": "Examples/Article_tests/Thiols/zrz_select.csv",
+        "space_features": "Examples/Article_tests/Thiols/fp_spoc_morgan41024_Maccs_zrz_select_alcohol.csv",
+        "reference": "Examples/Article_tests/Thiols/zrz_ol.csv",
+        "reference_features": "Examples/Article_tests/Thiols/fp_spoc_morgan41024_Maccs_zrz_ol_alcohol.csv",
+        "space_smiles_col": "smiles",
+        "reference_smiles_col": "smiles",
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": ["random", "cvt", "scopemap_hd", "fps", "kennard_stone", "ward"],
+        "budget": 21,
+        "batch_size": 7,
+        "repeats": 20,
+        "reference_clusters": 6,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "out_prefix": "thiol_reference_sampling_budget21_repeat20"
+      }
+    },
+    {
+      "name": "oxo_carboxide_reference_sampling",
+      "type": "reference_sampling",
+      "output_dir": "experiments/results/article_reference_sampling",
+      "plot": true,
+      "params": {
+        "space": "Examples/Article_tests/OxoestersOxoamides&Styrenes/dyd_carboxide_select.csv",
+        "space_features": "Examples/Article_tests/OxoestersOxoamides&Styrenes/fp_spoc_morgan41024_Maccs_dyd_carboxide_select_alcohol.csv",
+        "reference": "Examples/Article_tests/OxoestersOxoamides&Styrenes/dyd_carboxide_ol.csv",
+        "reference_features": "Examples/Article_tests/OxoestersOxoamides&Styrenes/fp_spoc_morgan41024_Maccs_dyd_carboxide_ol_alcohol.csv",
+        "space_smiles_col": "smiles",
+        "reference_smiles_col": "smiles",
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": ["random", "cvt", "scopemap_hd", "fps", "kennard_stone", "ward"],
+        "budget": 21,
+        "batch_size": 7,
+        "repeats": 20,
+        "reference_clusters": 6,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "out_prefix": "oxo_carboxide_reference_sampling_budget21_repeat20"
+      }
+    },
+    {
+      "name": "styrene_reference_sampling",
+      "type": "reference_sampling",
+      "output_dir": "experiments/results/article_reference_sampling",
+      "plot": true,
+      "params": {
+        "space": "Examples/Article_tests/OxoestersOxoamides&Styrenes/dyd_phenylethylene_select.csv",
+        "space_features": "Examples/Article_tests/OxoestersOxoamides&Styrenes/fp_spoc_morgan41024_Maccs_dyd_phenylethylene_select_alcohol.csv",
+        "reference": "Examples/Article_tests/OxoestersOxoamides&Styrenes/dyd_phenylethylene_ol.csv",
+        "reference_features": "Examples/Article_tests/OxoestersOxoamides&Styrenes/fp_spoc_morgan41024_Maccs_dyd_phenylethylene_ol_alcohol.csv",
+        "space_smiles_col": "smiles",
+        "reference_smiles_col": "smiles",
+        "dims": ["2", "64", "128", "full", "tanimoto"],
+        "methods": ["random", "cvt", "scopemap_hd", "fps", "kennard_stone", "ward"],
+        "budget": 21,
+        "batch_size": 7,
+        "repeats": 20,
+        "reference_clusters": 6,
+        "weighted_iters": 15,
+        "cvt_init_iters": 8,
+        "out_prefix": "styrene_reference_sampling_budget21_repeat20"
+      }
+    }
+  ]
+}

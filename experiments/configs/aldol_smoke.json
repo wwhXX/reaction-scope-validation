@@ -1,0 +1,23 @@
+{
+  "description": "Fast smoke test for the unified benchmark runner.",
+  "tasks": [
+    {
+      "name": "aldol_boundary_smoke",
+      "type": "boundary_sampling",
+      "output_dir": "experiments/results/aldol_smoke",
+      "plot": true,
+      "params": {
+        "data": "Examples/Sampling_eval/Model_eval/Regression/1700_final_norepeat.csv",
+        "target": "conv",
+        "non_feature_cols": ["smiles", "conv"],
+        "success_threshold": 70,
+        "dims": ["2"],
+        "methods": ["random", "fps"],
+        "budget": 12,
+        "batch_size": 6,
+        "repeats": 2,
+        "out_prefix": "aldol_boundary_smoke"
+      }
+    }
+  ]
+}
